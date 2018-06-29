@@ -24,7 +24,7 @@ app.set('port', (process.env.PORT || 3000));
 
 // Setting the app router and static folder
 app.use(express.static(path.resolve('public')));
-
+ 
 app.use(cors())
 .use(parser.urlencoded({ extended: true}))
 .use(parser.json());

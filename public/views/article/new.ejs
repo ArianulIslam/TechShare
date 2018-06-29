@@ -1,0 +1,81 @@
+<% include ../partials/header.ejs %>
+<div class="container p-4">
+ 
+  <section id="edit-post">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header">
+              <h4>Edit Profile</h4>
+            </div>
+            <div class="card-block p-4">
+           
+                <div class="form-group">
+                  <label for="title" class="form-control-label">Post Title</label>
+                  <input id="title" type="text" class="form-control" value="">
+                </div>
+                <div class="form-group">
+                  <label for="author" class="form-control-label">Author Name</label>
+                  <input  id="author" type="text" class="form-control">
+                </div>
+                 <div class="form-group">
+                  <label for="author" class="form-control-label">Refernce Link</label>
+                  <input  id="link" type="text" class="form-control">
+                </div>
+
+                <div class="form-group">
+                  <label for="body">Post Summary</label>
+                  <textarea id="summary" name="editor1" class="form-control"></textarea>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h3>Post Status</h3>
+          <img src="img/l.png" alt="" class="d-block img-fluid mb-3">
+          <button class="btn btn-primary btn-block">Draft</button>
+          <button  id="submit" class="btn btn-success btn-block">Published</button>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+ <!--
+ <h1>New Article</h1>
+  	<p>Title:</p>
+  	<input type="text" id="title"/><br/><br/>
+  	<p>Author:</p>
+  	<input type="text" id="author"/><br/><br/>
+  	<p>Link:</p>
+  	<input type="text" id="link"/><br/><br/>
+  	<p>Summary</p>
+  	<textarea id="summary">Add summary </textarea><br/><br/>
+  	<button id="submit">Submit</button>
+  	<div id="error"></div>
+    -->
+    	                            
+</div>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script>
+ var newArticle = {title:"", author:"", link:"", summary:""};
+  	$('#submit').click(function(){
+    	newArticle.title = $('#title').val();
+    	newArticle.author = $('#author').val();
+    	newArticle.link = $('#link').val();
+    	newArticle.summary = $('#summary').val();
+    		$.ajax({
+    	method: "POST",
+    	url: "/api/articles",
+data: newArticle
+}).done(function(response){
+console.log(response);
+    	window.location.replace("/article/"+response._id);;
+}).fail(function(response){
+$("#error").text(JSON.parse(response.responseText).message);
+});
+});
+
+</script>
+<% include ../partials/footer.ejs %>
