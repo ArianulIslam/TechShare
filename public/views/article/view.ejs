@@ -1,8 +1,12 @@
 <% include ../partials/header.ejs %>
-<div class="container">
+<div class="container p-4">
+    <div class="card m-2">
+    <div class="card-body">
     	<h1> <%= article.title %> </h1>
-    	<h5>By <%= article.author%> </h5>
-    	<h3><%= article.summary%></h3>
-    	<a href="<%=article.link%>" target="blank">Go to article</a>
+    	<h6>By <%= article.author%> </h6>
+    	<h5><%= article.summary%></h5>
+    	<a href="<%=article.link%>" target="blank"><button class="btn btn-sm pull-right btn-primary"><i class="fa fa-send-o"></i> Go to article</button></a>
+</div>
+ </div>
 </div>
 <% include ../partials/footer.ejs %>

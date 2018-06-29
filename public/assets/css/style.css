@@ -1,0 +1,42 @@
+*{
+    margin :0;
+    padding :0;
+}
+.mainHome{
+    background-image: url("/assets/img/home.jpg");
+}
+.centereddiv{
+
+position: absolute;
+width: 650px;
+height: 100px;
+top: 50%;
+left: 50%;
+-webkit-transform: translate(-50%, -50%);
+-moz-transform: translate(-50%, -50%);
+-o-transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+}
+
+.centereddiv2{
+
+position: absolute;
+width: 500px;
+height: 100px;
+top: 20%;
+left: 50%;
+-webkit-transform: translate(-50%, -50%);
+-moz-transform: translate(-50%, -50%);
+-o-transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+}
+
+
+.fonts{
+  font-size:40px;
+  font-family: 'Audiowide';
+}
+
+ 

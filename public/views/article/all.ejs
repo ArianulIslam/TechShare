@@ -1,26 +1,29 @@
 <% include ../partials/header.ejs %>
 
 <div class="container p-4">
-     
  
-  
-  
+   
+       
     <% for(var i=0; i<articles.length; i++) { %>
-      <h1> <%= articles[i].title %> </h1>
-      <h5>By <%= articles[i].author%> </h5>
-      <h3><%= articles[i].summary%></h3>
-       <p>
+    <div class="card m-2">
+    <div class="card-body">
+      <h2 class="card-title"> <%= articles[i].title %> </h1>
+      <h6 class="card-subtitle mb-2 text-muted" >By <%= articles[i].author%> </h5>
+      <h5 class="card-text"><%= articles[i].summary%></h3>
+       <p class="card-subtitle mb-2 text-muted">
         Posted by <%= articles[i].postedBy.username%>
       </p>
       <div style="display:inline-block; vertical-align:middle;">
-      <a href="/article/<%=articles[i]._id%>" target="blank"><button class="btn btn-sm btn-success">Read More</button></a>
+      <a href="/article/<%=articles[i]._id%>" target="blank" ><button class="btn btn-sm btn-success">Read More</button></a>
         <% if(user && String(user._id) == articles[i].postedBy._id) {%>
         <a href="/articles/edit/<%=articles[i]._id%>"><button class="btn btn-sm btn-primary">Edit</button> </a>
         <button class="btn btn-sm btn-danger" onclick="deleteArticle(<%= i %>)">Delete</button>
         <% } %>
-     
+     </div>
+     </div>
+     </div>
     <% } %>
-    </div>
+
 </div>
 <script src="/lib/jquery/dist/jquery.min.js"></script>
 <script>
