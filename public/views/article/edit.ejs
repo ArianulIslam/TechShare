@@ -25,7 +25,7 @@
 
                 <div class="form-group">
                   <label for="body">Post Summary</label>
-                  <textarea id="summary" name="editor1" class="form-control"><%=article.summary%></textarea>
+                   <textarea id="my-editor" name="editor1"  class="form-control"><%=article.summary%></textarea>
                 </div>
               
             </div>
@@ -64,7 +64,12 @@
 updatedArticle.title = $('#title').val();
 updatedArticle.author = $('#author').val();
 updatedArticle.link = $('#link').val();
-updatedArticle.summary = $('#summary').val();
+
+	var TextGrab = CKEDITOR.instances['my-editor'].getData();
+      	TextGrab = $(TextGrab).text(); // html to text        
+        TextGrab = TextGrab.replace(/\r?\n|\r/gm," "); // remove line breaks   
+        TextGrab = TextGrab.replace(/\s\s+/g, " ").trim(); // remove double spaces
+      	updatedArticle.summary = TextGrab ;
   	$.ajax({
 method: "PUT",
 url: "/api/articles/edit/"+articleID,

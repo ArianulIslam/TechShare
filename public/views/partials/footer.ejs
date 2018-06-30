@@ -10,5 +10,18 @@
 <script>
     CKEDITOR.replace('editor1');
   </script>
+   <script>
+  var user = {};
+    $("#logout").click(function(event){
+      $.ajax({
+    method: 'GET',
+        url: "/auth/signout"
+    }).done(function(response){
+    window.location.replace('/');
+    }).fail(function(response){
+    console.log("Something went wrong! Try again.");
+               });
+    });
+  </script>
     
 </html>

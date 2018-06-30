@@ -17,7 +17,7 @@
     <label> Password: </label>
     <input class="form-control" id="password" type="password"/>
     <div class="mt-2">
-    <button class="btn btn-success btn-block" id="submit">Register Now</button>
+    <button class="btn btn-success btn-block" id="submit" >Register Now</button>
     </div>
     <br/>
     <div id="error"></div>
@@ -52,7 +52,7 @@
         url: "/auth/signup",
         data: user
       }).done(function(response){
-        window.location.replace('/signin');
+        window.location.replace('/articles/all');
       }).fail(function(response){
         $("#error").text("Something went wrong! Try again.");
       });

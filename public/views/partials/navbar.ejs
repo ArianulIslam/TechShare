@@ -26,9 +26,14 @@
                 </li>
      
                 <li class="nav-item">
-                    <a class="nav-link" href="/signin"><button type="button" class="btn btn-info">
-      <i class="fa fa-sign-in"></i> Log in
-    </button></a>
+                     <%if(user) {%>
+                    <a class="nav-link" href=""><button id="logout" type="button" class="btn btn-info">
+      <i class="fa fa-sign-in"></i> Log out</button></a> 
+        <% }else{%>
+                    
+                    <a class="nav-link" href="/signin"><button  type="button" class="btn btn-info">
+      <i class="fa fa-sign-in"></i> Log In</button></a> 
+      
                 </li>
             <li class="nav-item">
                     <a class="nav-link" href="/signup">
@@ -36,6 +41,10 @@
       <i class="fa fa-send-o"></i> Register
     </button></a>
                 </li>
+        <% } %>
+    
+   
+      
                 
             </ul>
         </div>
