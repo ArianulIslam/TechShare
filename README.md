@@ -15,7 +15,7 @@
     `node server.js`
 
     
-4. In the browser open http://localhost:3000/, and you should see the index page
+4. In the browser open  https://mini-blog-a1522435.c9users.io/  and you should see the index page
 
 **Exposed APIs**:
 
